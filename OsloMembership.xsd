@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://purl.org/oslo/ns/vocabulary/membership"
+    xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+    xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:operson="http://purl.org/oslo/ns/vocabulary/person"
+    xmlns:oorg="http://purl.org/oslo/ns/vocabulary/organization"
+    xmlns:ocont="http://purl.org/oslo/ns/vocabulary/contact"
+    xmlns:olocn="http://purl.org/oslo/ns/vocabulary/location"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://purl.org/oslo/ns/vocabulary/membership" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="1">
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+        schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
+        schemaLocation="corevoc/CoreVocabularyBasicComponents-v1.00.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+        schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+        schemaLocation="common/UBL-CommonExtensionComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+        schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/location"
+        schemaLocation="corevoc/CoreLocation-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/person"
+        schemaLocation="corevoc/CorePerson-v1.00.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/person"
+        schemaLocation="OsloPerson.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/organization"
+        schemaLocation="OsloOrganization.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/contact"
+        schemaLocation="OsloContact.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/location"
+        schemaLocation="OsloResidenceObject.xsd"/>
+    <xsd:element name="membership" type="OvmembershipType"/>
+    <xsd:element name="memberships" type="OvmembershipsType"/>
+    <xsd:complexType name="OvmembershipsType">
+        <xsd:sequence>
+            <xsd:element ref="membership" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvmembershipType">
+        <xsd:complexContent>
+            <xsd:extension base="ovc:OvagentType">
+                <xsd:sequence>
+                    <xsd:element ref="ovc:membershipFunction" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:membershipType" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:validityPeriod" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="operson:person" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element ref="oorg:organization" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="mailingLocation" type="olocn:OvresidenceobjectType" minOccurs="0"
+                        maxOccurs="1"/>
+                    <xsd:element name="availableAt" type="olocn:OvresidenceobjectType" minOccurs="0"
+                        maxOccurs="1"/>
+                    <xsd:element ref="ocont:contact" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

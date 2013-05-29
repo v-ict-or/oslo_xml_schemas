@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://purl.org/oslo/ns/vocabulary/location"
+    xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+    xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+    xmlns:locn="http://www.w3.org/ns/corevocabulary/location"
+    targetNamespace="http://purl.org/oslo/ns/vocabulary/location" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="1">
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+        schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
+        schemaLocation="CoreVocabularyBasicComponents-v1.00.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+        schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+        schemaLocation="common/UBL-CommonExtensionComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+        schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/location"
+        schemaLocation="corevoc/CoreLocation-v1.00.xsd"/>
+    <xsd:element name="residenceObject" type="OvresidenceobjectType"/>
+    <xsd:element name="residenceObjects" type="OvresidenceobjectsType"/>
+    <xsd:complexType name="OvresidenceobjectsType">
+        <xsd:sequence>
+            <xsd:element ref="residenceObject" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvresidenceobjectType">
+        <xsd:complexContent>
+            <xsd:extension base="locn:CvlocationType">
+                <xsd:sequence>
+                    <xsd:element ref="ovc:validityPeriod" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:parcel" minOccurs="0" />
+                    <xsd:element ref="ovc:building" minOccurs="0" />
+                    <xsd:element ref="ovc:address"  minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="locationFunction" type="ovc:OvcodeType" minOccurs="0" maxOccurs="1" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

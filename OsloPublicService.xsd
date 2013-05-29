@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://purl.org/oslo/ns/vocabulary/publicservice"
+    xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+    xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+    xmlns:ova="urn:oslo:names:specification:schema:xsd:AggregateComponents-1"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:operson="http://purl.org/oslo/ns/vocabulary/person"
+    xmlns:oorg="http://purl.org/oslo/ns/vocabulary/organization"
+    xmlns:ocont="http://purl.org/oslo/ns/vocabulary/contact"
+    xmlns:olocn="http://purl.org/oslo/ns/vocabulary/location"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://purl.org/oslo/ns/vocabulary/publicservice" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="1">
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+        schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
+        schemaLocation="corevoc/CoreVocabularyBasicComponents-v1.00.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+        schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+        schemaLocation="common/UBL-CommonExtensionComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+        schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:AggregateComponents-1"
+        schemaLocation="OSLO-AggregateComponents-1.0.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/location"
+        schemaLocation="corevoc/CoreLocation-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/person"
+        schemaLocation="corevoc/CorePerson-v1.00.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/person"
+        schemaLocation="OsloPerson.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/organization"
+        schemaLocation="OsloOrganization.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/contact"
+        schemaLocation="OsloContact.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/location"
+        schemaLocation="OsloResidenceObject.xsd"/>
+    <xsd:element name="publicService" type="OvPublicServiceType" />
+    <xsd:element name="publicServices" type="OvpublicServicesType"/>
+    <xsd:complexType name="OvpublicServicesType">
+        <xsd:sequence>
+            <xsd:element ref="publicService" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvPublicServiceType">
+                <xsd:sequence>
+                    <xsd:element ref="ext:UBLExtensions" minOccurs="0"/>
+                    <xsd:element ref="cbc:UBLVersionID" minOccurs="0"/>
+                    <xsd:element ref="cbc:CustomizationID" minOccurs="0"/>
+                    <xsd:element ref="cbc:ProfileID" minOccurs="0"/>
+                    <xsd:element ref="ovc:targetDate" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="status" type="ovc:OvStatusType" minOccurs="0" />
+                    <xsd:element name="result" type="ovc:OvcodeType"  minOccurs="0"/>
+                    <xsd:element name="type" type="ovc:OvcodeType"  minOccurs="0"/>
+                    <xsd:element ref="ova:Role" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element ref="ovc:Rule" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="hasInput" type="ovc:OvDocumentType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="produces" type="ovc:OvProductType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="requires" type="OvPublicServiceType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element ref="ovc:identifier" minOccurs="1" maxOccurs="1" />
+                </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

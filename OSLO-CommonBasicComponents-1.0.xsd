@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===== xsd:schema Element With Namespaces Declarations ===== -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+  xmlns="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+  xmlns:isoc="urn:iso:names:specification:schema:xsd:ISO-3166-1"
+  xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+  xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+  xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+  xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
+  xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+  xmlns:addr="urn:x-inspire:specification:gmlas:Addresses:3.0"
+  xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents" elementFormDefault="qualified"
+  xmlns:locn="http://www.w3.org/ns/corevocabulary/location"
+  xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+  attributeFormDefault="unqualified"
+  xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" version="1.0">
+  <!-- ===== Imports ===== -->
+  <xsd:import
+    namespace="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+    schemaLocation="common/UnqualifiedDataTypeSchemaModule-2.0.xsd"/>
+  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+    schemaLocation="common/UBL-QualifiedDatatypes-2.0.xsd"/>
+  <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
+    schemaLocation="corevoc/CoreVocabularyBasicComponents-v1.00.xsd"/>
+  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
+  <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+    schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+  <xsd:import namespace="urn:iso:names:specification:schema:xsd:ISO-3166-1"
+    schemaLocation="common/ISO-3166-CountryCodes.xsd"/>
+  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    schemaLocation="common/UBL-CommonExtensionComponents-2.0.xsd"/>
+  <xsd:import namespace="urn:x-inspire:specification:gmlas:Addresses:3.0"
+    schemaLocation="common/Addresses.xsd"/>
+  <xsd:import namespace="http://www.w3.org/ns/corevocabulary/location"
+    schemaLocation="corevoc/CoreLocation-v1.00.xsd"/>
+  <!-- ===== Element Declarations ===== -->
+  <xsd:element name="code" type="OvcodeType"/>
+  <xsd:element name="identifier" type="OvidentifierType"/>
+  <xsd:element name="validityPeriod" type="ValidityPeriodType"/>
+  <xsd:element name="membershipFunction" type="MembershipFunctionType"/>
+  <xsd:element name="membershipType" type="OvcodeType"/>
+  <xsd:element name="relationType" type="OvcodeType"/>
+  <xsd:element name="Function" type="OvcodeType"/>
+  <xsd:element name="FunctionPhase" type="OvcodeType"/>
+  <xsd:element name="legalFormCode" type="LegalFormEnumType"/>
+  <xsd:element name="legalStatusCode" type="LegalStateEnumType"/>
+  <xsd:element name="placeOfBirth" type="AdministrativeUnitType"/>
+  <xsd:element name="placeOfDeath" type="AdministrativeUnitType"/>
+  <xsd:element name="targetDate" type="udt:DateType" />
+  <xsd:element name="nationality" type="isoc:ISOCountryCodeType"/>
+  <xsd:element name="reliability" type="OsloReliabilityType"/>
+  <xsd:element name="provenance" type="OsloProvenanceType" />
+  <xsd:element name="optIn" type="OsloOptInType"/>
+  <xsd:element name="KBONumber" type="OsloBusinessNumberType"/>
+  <xsd:element name="Rule" type="OvRuleType"/>
+  
+  <xsd:element name="parcel" type="OsloParcelType"/>
+  <xsd:element name="building" type="OsloBuildingType"/>
+  <xsd:element name="address" type="OsloBaseAddressType"/>
+  <xsd:element name="nobelityTitle" type="NobelityTitleType"/>
+
+  <!-- ===== Type Declarations ===== -->
+  <xsd:complexType name="OvContentsType">
+    <xsd:sequence>
+      <xsd:any processContents="skip"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name ="OvDocumentType">
+    <xsd:sequence>
+      <xsd:element name="name" type="udt:TextType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="content" type="OvContentsType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="location" type="locn:CvlocationType" minOccurs="0" maxOccurs="1" />
+     </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name ="OvProductType">
+    <xsd:complexContent>
+      <xsd:extension base="OvDocumentType">
+        <xsd:sequence>
+          <xsd:element name="productType" type="OvcodeType" minOccurs="1" maxOccurs="1" />
+          <xsd:element name="coverage" type="locn:CvlocationType"  maxOccurs="1" />
+          <xsd:element ref="validityPeriod" />
+          <xsd:element ref="identifier" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:complexType name ="OvStatusType">
+    <xsd:sequence>
+      <xsd:element name="statusType" type="OvcodeType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="statusCode" type="OvcodeType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="modificationDate" type="udt:DateType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="description" type="udt:TextType" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="OvRuleType">
+      <xsd:sequence>
+        <xsd:element ref="identifier" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="OvcodeType">
+    <xsd:complexContent>
+      <xsd:extension base="cva:CvbusinessCodeType">
+        <xsd:sequence>
+          <xsd:element name="code" type="udt:TextType" minOccurs="0" maxOccurs="1" nillable="true" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="OvidentifierType">
+    <xsd:sequence>
+      <xsd:element ref="cvb:Identifier"/>
+      <xsd:element ref="cvb:IdentifierType" minOccurs="0"/>
+      <xsd:element ref="cbc:IssueDate" minOccurs="0"/>
+      <xsd:element ref="cvb:IssuingAuthority" minOccurs="0"/>
+      <xsd:element ref="cvb:IssuingAuthorityID" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OsloAddressType" abstract="true">
+    <xsd:complexContent>
+      <xsd:extension base="cva:CvaddressType">
+        <xsd:sequence>
+          <xsd:element ref="addr:LocatorDesignator" />
+          <xsd:element ref="ovc:identifier"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="OsloBaseAddressType">
+    <xsd:complexContent>
+      <xsd:extension base="OsloAddressType">
+        <xsd:sequence>
+          <xsd:element name="extendedAddress" type="OsloAddressType" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="adminUnit" type="ovc:OvcodeType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="OsloParcelType">
+    <xsd:sequence>
+      <xsd:element ref="ovc:identifier"/>
+      <xsd:element ref="ovc:validityPeriod"/>
+      <xsd:element ref="cva:Geometry" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OsloProvenanceType">
+    <xsd:sequence>
+      <xsd:element ref="reliability" />
+      <xsd:element name="source" type="udt:TextType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OvagentType" abstract="true">
+    <xsd:sequence>
+      <xsd:element ref="ext:UBLExtensions" minOccurs="0"/>
+      <xsd:element ref="cbc:UBLVersionID" minOccurs="0"/>
+      <xsd:element ref="cbc:CustomizationID" minOccurs="0"/>
+      <xsd:element ref="cbc:ProfileID" minOccurs="0"/>
+      <xsd:element ref="ovc:identifier" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OsloBuildingType">
+    <xsd:sequence>
+      <xsd:element ref="ovc:identifier"/>
+      <xsd:element ref="ovc:parcel"/>
+      <xsd:element name="buildDate" type="udt:DateType"/>
+      <xsd:element ref="ovc:validityPeriod"/>
+      <xsd:element name="status" type="ovc:OvcodeType"/>
+      <xsd:element ref="cva:Geometry" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ValidityPeriodType">
+    <xsd:sequence>
+      <xsd:element name="fromDate" type="udt:DateType"/>
+      <xsd:element name="toDate" type="udt:DateType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NobelityTitleType">
+    <xsd:simpleContent>
+      <xsd:extension base="udt:TextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="MembershipFunctionType">
+    <xsd:simpleContent>
+      <xsd:extension base="udt:TextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="OsloDateType">
+    <xsd:simpleContent>
+      <xsd:extension base="udt:DateType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="AdministrativeUnitType">
+    <xsd:simpleContent>
+      <xsd:extension base="udt:TextType">
+        <xsd:attribute ref="NISCode"/>
+        <xsd:attribute name="countryCode" type="isoc:ISOCountryCodeType"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="IndicatorType">
+      <xsd:simpleContent>
+        <xsd:restriction base="udt:TextType">
+          <xsd:pattern value="[1-2]"/>
+        </xsd:restriction>
+      </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="OsloBusinessNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Dutch: OndernemingsNummerType</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:restriction base="udt:TextType">
+        <xsd:pattern value="[0-9]{9,10}"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="NationalityType">
+    <xsd:simpleContent>
+      <xsd:extension base="udt:TextType"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="OsloReliabilityType">
+    <xsd:annotation>
+      <xsd:documentation>OSLO:Reliability</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:NMTOKEN">
+      <xsd:enumeration value="LINKED">
+        <xsd:annotation>
+          <xsd:documentation>Linked Authentic Source</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ONCE">
+        <xsd:annotation>
+          <xsd:documentation>Once Imported from Authentic Source</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="NEVER">
+        <xsd:annotation>
+          <xsd:documentation>Manual input, not verified by Authentic Source</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OsloOptInType">
+    <xsd:annotation>
+      <xsd:documentation>OSLO:Opt-in</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:NMTOKEN">
+      <xsd:enumeration value="PUBLIC">
+        <xsd:annotation>
+          <xsd:documentation>Can be shared with everyone</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="INTERNAL">
+        <xsd:annotation>
+          <xsd:documentation>Sharing limited to administrative organization</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="LIMITED">
+        <xsd:annotation>
+          <xsd:documentation>Sharing limited to the intake process</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="NONE">
+        <xsd:annotation>
+          <xsd:documentation>No sharing allowed</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="LegalStateEnumType">
+    <xsd:annotation>
+      <xsd:documentation> | 000( Normale toestand ) | 001( Juridische oprichting ) | 003( Vervanging van het nummer ) | 010( Ontbinding van rechtswege ) | 011( Activiteitsopzegging in België ) | 012( Vrijwillige ontbinding ) | 013( Gerechtelijke ontbinding en nietigheid ) | 014( Sluiting van vereffening ) | 015( Activiteitsopzegging rechtspersoon publiek recht ) | 016( Activiteitsopzegging natuurlijke persoon ) | 017( Overdracht onderneming van een natuurlijke persoon. ) | 020( Verzameling aandelen in hoofde van één persoon ) | 021( Fusie door overneming ) | 022( Fusie door oprichting van een nieuwe vennootschap ) | 023( Splitsing ) | 024( Splitsing door overneming ) | 025( Splitsing door oprichting van een nieuwe vennootschap ) | 026( Gemengde splitsing ) | 030( Konkordaat vóór faling ) | 031( Konkordaat na faling ) | 040( Voorlopige opschorting van betaling ) | 041( Definitieve opschorting van betaling ) | 042( Herroeping van de opschorting ) | 043( Einde van de opschorting ) | 050( Opening van het faillissement ) | 051( Sluiting van het faillissement met verschoonbaarheid ) | 052( Sluiting van het faillissement zonder verschoonbaarheid ) | 053( Vonnis sluiting van het faillissement ) | 091( Uitstel van betaling ) | 999( Geannuleerd dossier ) | </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:restriction base="udt:TextType">
+        <xsd:length value="3"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="LegalFormEnumType">
+    <xsd:annotation>
+      <xsd:documentation> | 001( commerciële rechtspersonen ) | 002( niet commerciële rechtspersonen ) | 003( rechtspersonen met sociaal oogmerk ) | 004( economische samenwerkingsverbanden ) | 005( vereniging van mede-eigenaars ) | 006( buitenlandse ondernemingen en verenigingen ) | 007( speciale gevallen met rechtspersoonlijkheid ) | 008( vennootschappen zonder rechtspersoonlijkheid ) | 009( verenigingen zonder rechtspersoonlijkheid ) | 010( diversen zonder rechtspersoonlijkheid ) | 011( publieke belgische organismen onder rechtsvorm ) | 012( publieke belgische organismen onder rechtsvorm met sociaal oogmerk ) | 013( gemeenschappen belgisch grondgebied ) | 014( andere belgische publiekrechtelijke instellingen ) | 015( buitenlandse of internationale publieke organisaties ) | </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:restriction base="udt:TextType">
+        <xsd:length value="3"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="ReasonShutDownEnumType">
+    <xsd:annotation>
+      <xsd:documentation> | 010( Ontbinding van rechtswege ) | 011( Activiteitsopzegging in België ) | 012( Vrijwillige ontbinding ) | 013( Gerechtelijke ontbinding en nietigheid ) | 014( Sluiting van de vereffening ) | 015( Activiteitsopzegging publieke rechtspersoon ) | 016( Activiteitsopzegging natuulijk persoon ) | 017( Overdracht onderneming van een natuurlijke persoon ) | 021( Fusie door overneming ) | 022( Fusie door oprichting van een nieuwe vennootschap ) | 023( Splitsing ) | 024( Splitsing door overneming ) | 025( Splitsing door oprichting van een nieuwe vennootschap ) | 026( Gemengde splitsing ) | 051( Sluiting van het faillissement met verschoonbaarheid ) | 052( Sluiting van het faillissement zonder verschoonbaarheid ) | </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:restriction base="udt:TextType">
+        <xsd:length value="3"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:attribute name="NISCode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:integer">
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="99999"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+</xsd:schema>

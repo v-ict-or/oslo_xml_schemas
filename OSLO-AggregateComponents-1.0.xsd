@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Document Type:     CommonBasicComponents
+  Generated On:      Tue Oct 03 2:26:38 P3 2006
+  
+-->
+<!-- ===== xsd:schema Element With Namespaces Declarations ===== -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:oslo:names:specification:schema:xsd:AggregateComponents-1"
+    xmlns="urn:oslo:names:specification:schema:xsd:AggregateComponents-1"
+    xmlns:isoc="urn:iso:names:specification:schema:xsd:ISO-3166-1"
+    xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+    xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+    xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+    xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents" elementFormDefault="qualified"
+    xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1" attributeFormDefault="unqualified"
+    xmlns:operson="http://purl.org/oslo/ns/vocabulary/person"
+    xmlns:oorg="http://purl.org/oslo/ns/vocabulary/organization"
+    version="1.0"
+    >
+    <!-- ===== Imports ===== -->
+    <xsd:import
+        namespace="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+        schemaLocation="common/UnqualifiedDataTypeSchemaModule-2.0.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+        schemaLocation="common/UBL-QualifiedDatatypes-2.0.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+        schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+    <xsd:import namespace="urn:iso:names:specification:schema:xsd:ISO-3166-1" 
+        schemaLocation="common/ISO-3166-CountryCodes.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/person"
+        schemaLocation="OsloPerson.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/organization"
+        schemaLocation="OsloOrganization.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+        schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
+    <!-- ===== Element Declarations ===== -->
+    <xsd:element name="PersonRelation" type="PersonRelationType"/>
+    <xsd:element name="OrganinizationRelation" type="OrganizationRelationType"/>
+    <xsd:element name="PersonRelations" type="PersonRelationsType"/>
+    <xsd:element name="OrganizationRelations" type="OrganizationRelationsType"/>
+    <xsd:element name="Role" type="OvRoleType"/>
+    <!-- ===== Type Declarations ===== -->
+    <xsd:complexType name="PersonRelationsType">
+        <xsd:sequence>
+            <xsd:element ref="PersonRelation" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OrganizationRelationsType">
+        <xsd:sequence>
+            <xsd:element ref="OrganinizationRelation" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PersonRelationType">
+        <xsd:sequence>
+            <xsd:element name="from" type="operson:OvpersonType"/>
+            <xsd:element name="to" type="operson:OvpersonType"/>
+            <xsd:element ref="ovc:relationType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="ovc:validityPeriod" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OrganizationRelationType">
+        <xsd:sequence>
+            <xsd:element name="from" type="oorg:OvorganizationType"/>
+            <xsd:element name="to" type="oorg:OvorganizationType"/>
+            <xsd:element ref="ovc:validityPeriod" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvRoleType">
+        <xsd:sequence>
+            <xsd:element name="roleType" type="ovc:OvcodeType"/>
+            <xsd:element name="agent" type="ovc:OvagentType" minOccurs="1" maxOccurs="unbounded" />
+            <xsd:element name="permission" type="OvPermissionType" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvPermissionType">
+        <xsd:sequence>
+            <xsd:element ref="ovc:Rule" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

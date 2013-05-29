@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://purl.org/oslo/ns/vocabulary/person"
+    xmlns:cva="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+    xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+    xmlns:olocn="http://purl.org/oslo/ns/vocabulary/location"
+    xmlns:ocont="http://purl.org/oslo/ns/vocabulary/contact"
+    targetNamespace="http://purl.org/oslo/ns/vocabulary/person" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="1">
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
+        schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
+    <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
+        schemaLocation="corevoc/CoreVocabularyBasicComponents-v1.00.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+        schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+        schemaLocation="common/UBL-CommonExtensionComponents-2.0.xsd"/>
+    <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
+        schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/location"
+        schemaLocation="OsloResidenceObject.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/contact"
+        schemaLocation="OsloContact.xsd"/>
+    <xsd:element name="persons" type="OvpersonsType"/>
+    <xsd:element name="person" type="OvpersonType"/>
+    <xsd:complexType name="OvpersonsType">
+            <xsd:sequence>
+                <xsd:element ref="person" minOccurs="1" maxOccurs="unbounded" />
+            </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OvpersonType">
+        <xsd:complexContent>
+            <xsd:extension base="ovc:OvagentType">
+                <xsd:sequence>         
+                    <xsd:element ref="cvb:FullName" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cbc:FamilyName" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cvb:GivenName" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cvb:PatronymicName" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cvb:GenderCode" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cvb:BirthDate" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cvb:DeathDate" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cva:ResidencyJurisdiction" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="cva:CitizenshipJurisdiction" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:placeOfBirth" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:placeOfDeath" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element ref="ovc:nationality" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element ref="ovc:nobelityTitle" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="legalCohabitation" type="ovc:IndicatorType" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="civilClass" type="ovc:OvcodeType" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="legalIncompetence" type="ovc:OvcodeType" minOccurs="0" maxOccurs="1" />                    
+                    <xsd:element name="residence" type="olocn:OvresidenceobjectType" minOccurs="0" maxOccurs="unbounded" />
+                    <xsd:element name="domicile" type="olocn:OvresidenceobjectType" minOccurs="0" maxOccurs="unbounded" />
+                    <xsd:element ref="ocont:contact" />                  
+                </xsd:sequence>
+            </xsd:extension>
+            
+        </xsd:complexContent>
+       
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.w3.org/ns/corevocabulary/"
+            xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.w3.org/ns/corevocabulary/"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1">
+   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+               schemaLocation="../common/UBL-CommonExtensionComponents-2.0.xsd"/>
+   <xsd:element name="" type="Type"/>
+</xsd:schema>
