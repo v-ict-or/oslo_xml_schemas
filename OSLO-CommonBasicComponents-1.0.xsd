@@ -126,7 +126,7 @@
     <xsd:complexContent>
       <xsd:extension base="cva:CvaddressType">
         <xsd:sequence>
-          <xsd:element ref="addr:LocatorDesignator" />
+          <xsd:element ref="addr:LocatorDesignator" minOccurs="0"/>
           <xsd:element ref="ovc:identifier"/>
         </xsd:sequence>
       </xsd:extension>
