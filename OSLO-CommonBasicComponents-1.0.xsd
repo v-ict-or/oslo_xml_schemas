@@ -83,7 +83,7 @@
           <xsd:element name="productType" type="OvcodeType" minOccurs="1" maxOccurs="1" />
           <xsd:element name="coverage" type="locn:CvlocationType"  maxOccurs="1" />
           <xsd:element ref="validityPeriod" />
-          <xsd:element ref="identifier" minOccurs="1" />
+          <xsd:element ref="identifier" minOccurs="1" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -126,7 +126,7 @@
     <xsd:complexContent>
       <xsd:extension base="cva:CvaddressType">
         <xsd:sequence>
-          <xsd:element ref="addr:LocatorDesignator" />
+          <xsd:element ref="addr:LocatorDesignator" minOccurs="0"/>
           <xsd:element ref="ovc:identifier"/>
         </xsd:sequence>
       </xsd:extension>
@@ -161,7 +161,7 @@
       <xsd:element ref="cbc:UBLVersionID" minOccurs="0"/>
       <xsd:element ref="cbc:CustomizationID" minOccurs="0"/>
       <xsd:element ref="cbc:ProfileID" minOccurs="0"/>
-      <xsd:element ref="ovc:identifier" minOccurs="1" />
+      <xsd:element ref="ovc:identifier" minOccurs="1" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="OsloBuildingType">
