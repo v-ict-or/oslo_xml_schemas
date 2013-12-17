@@ -41,6 +41,16 @@
     <xsd:element name="OrganizationRelations" type="OrganizationRelationsType"/>
     <xsd:element name="Role" type="OvRoleType"/>
     <!-- ===== Type Declarations ===== -->
+    <xsd:element name="root" type="RootType"/>
+    <xsd:complexType name="RootType">
+        <xsd:sequence>
+            <xsd:element ref="operson:persons" minOccurs="0" />
+            <xsd:element ref="PersonRelations" minOccurs="0" />
+            <xsd:element ref="oorg:organizations" minOccurs="0" />
+            <xsd:element ref="OrganizationRelations" minOccurs="0" />
+            <xsd:element ref="om:memberships" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
     <xsd:complexType name="PersonRelationsType">
         <xsd:sequence>
             <xsd:element ref="PersonRelation" minOccurs="1" maxOccurs="unbounded" />
