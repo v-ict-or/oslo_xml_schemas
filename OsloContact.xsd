@@ -12,7 +12,7 @@
     <xsd:import namespace="http://www.w3.org/ns/corevocabulary/AggregateComponents"
         schemaLocation="corevoc/CoreVocabularyAggregateComponents-v1.00.xsd"/>
     <xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents"
-        schemaLocation="CoreVocabularyBasicComponents-v1.00.xsd"/>
+        schemaLocation="corevoc/CoreVocabularyBasicComponents-v1.00.xsd"/>
     <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
         schemaLocation="common/UBL-CommonBasicComponents-2.0.xsd"/>
     <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
