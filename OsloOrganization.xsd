@@ -58,10 +58,10 @@
                             <xsd:documentation> | 1 ( Natuurlijk Persoon ) | 2 ( Rechtspersoon ) | </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="ovc:Function"/>
-                    <xsd:element ref="ovc:FunctionPhase"/>
-                    <xsd:element ref="ovc:legalStatusCode"/>
-                    <xsd:element ref="ovc:legalFormCode"/>
+                    <xsd:element ref="ovc:Function" minOccurs="0"/>
+                    <xsd:element ref="ovc:FunctionPhase" minOccurs="0"/>
+                    <xsd:element ref="ovc:legalStatusCode" minOccurs="0"/>
+                    <xsd:element ref="ovc:legalFormCode" minOccurs="0"/>
                     <xsd:element name="establishmentDate" type="ovc:OsloDateType" minOccurs="0"
                         maxOccurs="1"/>
                     <xsd:element name="shutdownDate" type="ovc:OsloDateType" minOccurs="0"
@@ -69,10 +69,10 @@
                     <xsd:element name="reasonShutdown" type="ovc:ReasonShutDownEnumType"
                         minOccurs="0" maxOccurs="1"/>
                     <xsd:element name="invoiceLocation" type="olocn:OvresidenceobjectType"  minOccurs="0"/>
-                    <xsd:element name="authenticLocation" type="olocn:OvresidenceobjectType"/>
+                    <xsd:element name="authenticLocation" type="olocn:OvresidenceobjectType" minOccurs="0"/>
                     <xsd:element name="deliveryLocation" type="olocn:OvresidenceobjectType"  minOccurs="0"/>
                     <xsd:element name="mailingLocation" type="olocn:OvresidenceobjectType"  minOccurs="0"/>
-                    <xsd:element ref="ocont:contact"/>
+                    <xsd:element ref="ocont:contact" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
