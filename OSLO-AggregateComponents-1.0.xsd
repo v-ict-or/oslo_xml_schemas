@@ -16,6 +16,7 @@
     xmlns:ovc="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1" attributeFormDefault="unqualified"
     xmlns:operson="http://purl.org/oslo/ns/vocabulary/person"
     xmlns:oorg="http://purl.org/oslo/ns/vocabulary/organization"
+    xmlns:om="http://purl.org/oslo/ns/vocabulary/membership"
     version="1.0"
     >
     <!-- ===== Imports ===== -->
@@ -32,6 +33,8 @@
         schemaLocation="OsloPerson.xsd"/>
     <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/organization"
         schemaLocation="OsloOrganization.xsd"/>
+    <xsd:import namespace="http://purl.org/oslo/ns/vocabulary/membership"
+        schemaLocation="OsloMembership.xsd"/>
     <xsd:import namespace="urn:oslo:names:specification:schema:xsd:CommonBasicComponents-1"
         schemaLocation="OSLO-CommonBasicComponents-1.0.xsd"/>
     <!-- ===== Element Declarations ===== -->
@@ -40,8 +43,8 @@
     <xsd:element name="PersonRelations" type="PersonRelationsType"/>
     <xsd:element name="OrganizationRelations" type="OrganizationRelationsType"/>
     <xsd:element name="Role" type="OvRoleType"/>
-    <!-- ===== Type Declarations ===== -->
     <xsd:element name="root" type="RootType"/>
+    <!-- ===== Type Declarations ===== -->
     <xsd:complexType name="RootType">
         <xsd:sequence>
             <xsd:element ref="operson:persons" minOccurs="0" />
