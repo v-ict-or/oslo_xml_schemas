@@ -17,8 +17,8 @@
             <dc:relation>ftp://ftp.isi.edu/in-notes/rfc2426.txt</dc:relation>
         </appinfo>
     </annotation>
-    <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
-    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+    <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
     <element name="VCARD">
         <complexType>
             <sequence>
@@ -231,7 +231,7 @@
     </element>
     <element name="URL">
         <complexType>
-            <attributeGroup ref="xlink:simpleLink"/>
+            <attributeGroup ref="xlink:simpleAttrs"/>
         </complexType>
     </element>
     <complexType name="simpleElement">
@@ -258,7 +258,7 @@
                 </attribute>
                 <attribute name="TYPE" type="string"/>
                 <attribute ref="xml:lang" use="optional"/>
-                <attributeGroup ref="xlink:simpleLink"/>
+                <attributeGroup ref="xlink:simpleAttrs"/>
             </extension>
         </simpleContent>
     </complexType>
