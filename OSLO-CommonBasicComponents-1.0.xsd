@@ -120,6 +120,8 @@
       <xsd:element ref="cbc:IssueDate" minOccurs="0"/>
       <xsd:element ref="cvb:IssuingAuthority" minOccurs="0"/>
       <xsd:element ref="cvb:IssuingAuthorityID" minOccurs="0"/>
+	  <xsd:element name="isActive" type="udt:IndicatorType" minOccurs="0" maxOccurs="1" nillable="true" />
+	  <xsd:element name="revisionOf" type="OvidentifierType" minOccurs="0" maxOccurs="1" nillable="true" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="OsloAddressType" abstract="true">
