@@ -399,14 +399,14 @@
     <rdfs:label xml:lang="en">follows</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/regorg#companyType">
-    <dcterms:identifier>rov:companyType</dcterms:identifier>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/regorg#orgType">
+    <dcterms:identifier>rov:orgType</dcterms:identifier>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/org#classification"/>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/vocab-regorg/"/>
     <rdfs:comment xml:lang="en">This property records the type of company. Familiar types are SA, PLC, LLC, GmbH etc. Each 
       jurisdiction will have a limited set of recognized company types and these should be used in a consistent manner
-      using a SKOS Concept Scheme. rov:companyType is a sub class of org:classification which has a range of skos:Concept.</rdfs:comment>
-    <rdfs:label xml:lang="en">company type</rdfs:label>
+      using a SKOS Concept Scheme. rov:orgType is a sub class of org:classification which has a range of skos:Concept.</rdfs:comment>
+    <rdfs:label xml:lang="en">organization type</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </owl:ObjectProperty>
   <rdf:Property rdf:ID="extended_address">
@@ -806,7 +806,16 @@
     <rdfs:isDefinedBy rdf:resource=""/>
     <rdfs:domain rdf:resource="#Organization"/>
     <rdfs:range rdf:resource="#ResidenceObject"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/regorg#registration"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
+    <dcterms:identifier>oslo:invoiceLocation</dcterms:identifier>
+  </rdf:Property>
+    <rdf:Property rdf:ID="authenticLocation">
+    <rdfs:label xml:lang="en">invoice location</rdfs:label>
+    <rdfs:comment xml:lang="en">Points to a invoice location</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource=""/>
+    <rdfs:domain rdf:resource="#Organization"/>
+    <rdfs:range rdf:resource="#ResidenceObject"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
     <dcterms:identifier>oslo:invoiceLocation</dcterms:identifier>
   </rdf:Property>
   <rdf:Property rdf:ID="targetDate">
@@ -875,7 +884,7 @@
     <rdfs:isDefinedBy rdf:resource=""/>
     <rdfs:domain rdf:resource="#Organization"/>
     <rdfs:range rdf:resource="#ResidenceObject"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/regorg#registration"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
     <dcterms:identifier>oslo:deliveryLocation</dcterms:identifier>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/ns/legal#companyStatus">
@@ -1044,7 +1053,7 @@
     <rdfs:isDefinedBy rdf:resource=""/>
     <rdfs:domain rdf:resource="#Membership"/>
     <rdfs:range rdf:resource="#ResidenceObject"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/regorg#registration"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/locn#location"/>
     <dcterms:identifier>oslo:availableAt</dcterms:identifier>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/ns/locn#geometry">
