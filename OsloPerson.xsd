@@ -53,7 +53,7 @@
                     <xsd:element name="legalIncompetence" type="ovc:OvcodeType" minOccurs="0" maxOccurs="1" />                    
                     <xsd:element name="residence" type="olocn:OvresidenceobjectType" minOccurs="0" maxOccurs="unbounded" />
                     <xsd:element name="domicile" type="olocn:OvresidenceobjectType" minOccurs="0" maxOccurs="unbounded" />
-                    <xsd:element ref="ocont:contact" />                  
+                    <xsd:element ref="ocont:contact" minOccurs="0" maxOccurs="1" />                  
                 </xsd:sequence>
             </xsd:extension>
             
