@@ -810,8 +810,8 @@
     <dcterms:identifier>oslo:invoiceLocation</dcterms:identifier>
   </rdf:Property>
     <rdf:Property rdf:ID="authenticLocation">
-    <rdfs:label xml:lang="en">invoice location</rdfs:label>
-    <rdfs:comment xml:lang="en">Points to a invoice location</rdfs:comment>
+    <rdfs:label xml:lang="en">authentic location</rdfs:label>
+    <rdfs:comment xml:lang="en">Points to a authentic location</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource=""/>
     <rdfs:domain rdf:resource="#Organization"/>
     <rdfs:range rdf:resource="#ResidenceObject"/>
