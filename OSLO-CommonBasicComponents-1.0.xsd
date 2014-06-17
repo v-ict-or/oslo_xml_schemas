@@ -218,7 +218,7 @@
     </xsd:annotation>
     <xsd:simpleContent>
       <xsd:restriction base="udt:TextType">
-        <xsd:pattern value="[0-9]{9,10}"/>
+        <!-- <xsd:pattern value="[0-9]{9,10}"/> -->
       </xsd:restriction>
     </xsd:simpleContent>
   </xsd:complexType>
