@@ -1,6 +1,10 @@
-oslo_xmlschema
+OSLO XML and RDF Schemas
+=========================
 
-The OSLO specification represented in XML Schema.
+The OSLO specification represented in XML Schema and RDF Schema.
 
-http://purl.org/oslo/model
-http://purl.org/oslo
+More information
+---------------
+
+ - http://purl.org/oslo/model
+ - http://purl.org/oslo
