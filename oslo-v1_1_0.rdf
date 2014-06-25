@@ -5,6 +5,7 @@
     xmlns:locn="http://www.w3.org/ns/locn#"
     xmlns:olca="http://www.lingvoj.org/olca#"
     xmlns:voaf="http://purl.org/vocommons/voaf#"
+    xmlns:frbr="http://purl.org/vocab/frbr/core#"
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:adms="http://www.w3.org/ns/adms#"
@@ -89,7 +90,7 @@
     </dcterms:relation>
     <vann:preferredNamespacePrefix xml:lang="en">oslo</vann:preferredNamespacePrefix>
     <vann:preferredNamespacePrefix>oslo</vann:preferredNamespacePrefix>
-    <rdf:type rdf:resource="http://labs.mondeca.com/vocab/voaf#Vocabulary"/>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     <dcterms:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Copyright © 2013 V-ICT-OR</dcterms:rights>
     <dcterms:creator rdf:parseType="Resource">
@@ -185,15 +186,14 @@
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Membership"/>
     <dcterms:identifier>oslo:Membership</dcterms:identifier>
   </rdfs:Class>
-  <rdfs:Class>
-    <rdfs:ID>ResidenceObject</rdfs:ID>
-    <rdfs:label xml:lang="en">Residence Object</rdfs:label>
+  <rdfs:Class rdf:ID="ResidenceObject">
+    <dcterms:identifier>oslo:ResidenceObject</dcterms:identifier>
+    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Location"/>
+    <rdfs:isDefinedBy rdf:resource=""/>
+    <vann:usageNote xml:lang="en">This is the key class for the Location Core Vocabulary and represents any location that has an address, a building and a parcel.</vann:usageNote>
     <rdfs:comment xml:lang="en">This is the key class for the OSLO Location Vocabulary and represents a 
       location that is linked with an address and/or a building with parcel(s).</rdfs:comment>
-    <rdfs:subClassOf>
-      <rdf:Property rdf:about="http://www.w3.org/ns/locn#location"/>
-    </rdfs:subClassOf>
-    <dcterms:identifier>oslo:ResidenceObject</dcterms:identifier>
+    <rdfs:label xml:lang="en">Residence Object</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:ID="Status">
     <rdfs:label xml:lang="en">Status</rdfs:label>
@@ -301,14 +301,6 @@
     <vann:usageNote xml:lang="en">Use this class to represent information about a building.</vann:usageNote>
     <rdfs:comment xml:lang="en">Information related to a Building</rdfs:comment>
     <rdfs:label xml:lang="en">Building</rdfs:label>
-  </rdfs:Class>
-  <rdfs:Class rdf:ID="ResidenceObject">
-    <dcterms:identifier>oslo:ResidenceObject</dcterms:identifier>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Location"/>
-    <rdfs:isDefinedBy rdf:resource=""/>
-    <vann:usageNote xml:lang="en">This is the key class for the Location Core Vocabulary and represents any location that has an address, a building and a parcel.</vann:usageNote>
-    <rdfs:comment xml:lang="en">This class represents any object that has an address.</rdfs:comment>
-    <rdfs:label xml:lang="en">ResidenceObject</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:ID="Role">
     <rdfs:label xml:lang="en">Role</rdfs:label>
