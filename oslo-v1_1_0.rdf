@@ -34,16 +34,16 @@
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >OSLO Exchange Standard</rdfs:label>
     <foaf:maker rdf:parseType="Resource">
-      <foaf:page rdf:resource="http://joinup.ec.europa.eu/asset/core_business/home"/>
-      <foaf:name>Core Vocabularies Working Group (Business Task Force)</foaf:name>
+      <foaf:page rdf:resource="http://www.v-ict-or.be/kenniscentrum/OSLO"/>
+      <foaf:name>Open Standards for Linking Governments Working Group (V-ICT-OR, OSLO)</foaf:name>
     </foaf:maker>
     <xhv:last rdf:resource=""/>
-    <foaf:depiction rdf:resource="http://www.w3.org/ns/Core_Vocabularies_1.0.png"/>
+    <foaf:depiction rdf:resource="http://purl.org/oslo/model"/>
     <dcterms:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >This is the RDF encoding of the OSLO Vocabulary developed under the OSLO (Open Standards for Local Administrations) Programme.</dcterms:description>
     <spin:imports rdf:resource="http://topbraid.org/spin/rdfsplus"/>
     <voaf:reliesOn rdf:resource="http://purl.org/dc/terms/"/>
-    <dcterms:rights>Copyright (c) 2013 V-ICT-OR.</dcterms:rights>
+    <dcterms:rights>Copyright (c) 2013-2014 V-ICT-OR.</dcterms:rights>
     <dcterms:creator rdf:parseType="Resource">
       <schema:affiliation rdf:parseType="Resource">
         <foaf:name>V-ICT-OR/OSLO</foaf:name>
@@ -76,24 +76,19 @@
     </wdrs:describedby>
     <foaf:depiction rdf:resource="http://purl.org/oslo/model"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Version 1.0.1 30 September 2013</owl:versionInfo>
+    >Version 1.1.0 30 May 2014</owl:versionInfo>
     <dcterms:abstract rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >This version of the OSLO Exchange Standard provides a minimum set of classes and properties for describing a natural person, i.e. the individual as opposed to any role they may play in society or the relationships they have to other people, organisations and property; all of which contribute significantly to the broader concept of identity. The vocabulary is closely integrated with the Person, Organisation and Location Vocabularies published by the W3C in the Gov Linked Data Project.</dcterms:abstract>
     <cc:attributionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >V-ICT-OR</cc:attributionName>
-    <dcterms:relation>
-      <sioc:Forum rdf:about="http://joinup.ec.europa.eu/asset/core_person/topic/public-comments-core-person-vocabulary-v02">
-        <dcterms:title>Public comments on the Core Person Vocabulary v0.2</dcterms:title>
-      </sioc:Forum>
-    </dcterms:relation>
     <vann:preferredNamespacePrefix xml:lang="en">oslo</vann:preferredNamespacePrefix>
     <vann:preferredNamespacePrefix>oslo</vann:preferredNamespacePrefix>
     <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     <dcterms:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Copyright © 2013 V-ICT-OR</dcterms:rights>
+    >Copyright © 2013-2014 V-ICT-OR</dcterms:rights>
     <dcterms:creator rdf:parseType="Resource">
       <schema:affiliation rdf:parseType="Resource">
-        <foaf:name>Ghent University - iMinds - Multimedialab</foaf:name>
+        <foaf:name>Ghent University - iMinds - Multimedia Lab</foaf:name>
       </schema:affiliation>
       <foaf:homepage rdf:resource="http://be.linkedin.com/pub/laurensdv/"/>
       <foaf:name>Laurens De Vocht</foaf:name>
