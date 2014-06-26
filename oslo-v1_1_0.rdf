@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns:j.0="http://labs.mondeca.com/vocab/voaf#"
     xmlns:cpsv="http://purl.org/vocab/cpsv#"
     xmlns:locn="http://www.w3.org/ns/locn#"
     xmlns:olca="http://www.lingvoj.org/olca#"
