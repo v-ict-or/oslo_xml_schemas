@@ -67,7 +67,7 @@
       </rdf:Description>
     </dcterms:license>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2013-09-30Z</dcterms:modified>
+    >2014-05-30Z</dcterms:modified>
     <cc:attributionURL rdf:resource="http://www.v-ict-or.be"/>
     <wdrs:describedby>
       <rdf:Description rdf:about="https://joinup.ec.europa.eu/system/files/project/Core_Vocabularies-Business_Location_Person-Specification-v0.3_0.zip">
